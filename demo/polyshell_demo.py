@@ -1,334 +1,144 @@
-"""
-PolyShell Enhanced Demo
-Natural Language AI Shell Prototype
-
-Features
-- Language Pack Loader
-- IR Parser
-- Plugin System
-- Command Registry
-- Command Learning
-- Autocomplete
-- Suggestion Engine
-"""
-
 import os
-import json
 
-# =============================
-# Storage Files
-# =============================
+print("PolyShell Demo v0.1")
+print("Type 'exit' to quit")
+print("")
 
-LEARNED_COMMANDS_FILE = "learned_commands.json"
+# ------------------------
+# PolyShell DSL
+# ------------------------
 
+# core actions
+actions = {
+    "install": "install",
+    "安装": "install",
 
-# =============================
-# Default Language Packs
-# =============================
+    "create": "create",
+    "创建": "create",
 
-LANGUAGE_PACKS = {
+    "open": "open",
+    "打开": "open",
 
-    "english": {
-        "install python": ("install", "python"),
-        "install node": ("install", "node"),
-        "open browser": ("open", "browser"),
-        "create folder": ("create", "folder")
-    },
+    "delete": "delete",
+    "删除": "delete",
 
-    "chinese": {
-        "安装 python": ("install", "python"),
-        "安装 node": ("install", "node"),
-        "打开浏览器": ("open", "browser"),
-        "创建文件夹": ("create", "folder")
-    },
+    "show": "show",
+    "显示": "show",
 
-    "hindi": {
-        "पायथन इंस्टॉल": ("install", "python"),
-        "नोड इंस्टॉल": ("install", "node"),
-        "ब्राउज़र खोलो": ("open", "browser"),
-        "फोल्डर बनाओ": ("create", "folder")
-    }
+    "update": "update",
+    "更新": "update",
 
+    "search": "search",
+    "搜索": "search",
+
+    "run": "run",
+    "运行": "run",
+
+    "stop": "stop",
+    "停止": "stop",
+
+    "help": "help",
+    "帮助": "help"
 }
 
+# core objects
+objects = {
+    "python": "python",
+    "node": "node",
 
-# =============================
-# Command Registry
-# =============================
+    "folder": "folder",
+    "文件夹": "folder",
 
-COMMAND_REGISTRY = {
+    "file": "file",
+    "文件": "file",
 
-    ("install", "python"): "winget install Python.Python",
+    "browser": "browser",
+    "浏览器": "browser",
 
-    ("install", "node"): "winget install OpenJS.NodeJS",
+    "project": "project",
+    "项目": "project",
 
-    ("open", "browser"): "start chrome",
-
-    ("create", "folder"): "mkdir"
-
+    "cpu": "cpu",
+    "memory": "memory",
+    "disk": "disk",
+    "network": "network"
 }
 
-
-# =============================
-# Plugin System
-# =============================
-
-PLUGINS = []
-
-def register_plugin(func):
-    PLUGINS.append(func)
-
-
-def run_plugins(ir):
-
-    for plugin in PLUGINS:
-        plugin(ir)
-
-
-# Example plugin
-def security_plugin(ir):
-
-    if ir["intent"] == "install":
-        print("Security Check: verifying installer source")
-
-
-register_plugin(security_plugin)
-
-
-# =============================
-# Load Learned Commands
-# =============================
-
-def load_learned_commands():
-
-    if os.path.exists(LEARNED_COMMANDS_FILE):
-
-        with open(LEARNED_COMMANDS_FILE, "r") as f:
-            return json.load(f)
-
-    return {}
-
-
-def save_learned_commands(data):
-
-    with open(LEARNED_COMMANDS_FILE, "w") as f:
-        json.dump(data, f, indent=2)
-
-
-LEARNED_COMMANDS = load_learned_commands()
-
-
-# =============================
-# IR Parser
-# =============================
-
-def parse_to_ir(language, text):
-
-    pack = LANGUAGE_PACKS.get(language, {})
-
-    for phrase in pack:
-
-        if text.startswith(phrase):
-
-            intent, target = pack[phrase]
-
-            value = text.replace(phrase, "").strip()
-
-            return {
-                "intent": intent,
-                "target": target,
-                "value": value
-            }
-
-    # check learned commands
-
-    if text in LEARNED_COMMANDS:
-
-        return LEARNED_COMMANDS[text]
-
-    return None
-
-
-# =============================
-# Autocomplete
-# =============================
-
-def autocomplete(language, text):
-
-    pack = LANGUAGE_PACKS.get(language, {})
-
-    suggestions = []
-
-    for phrase in pack:
-
-        if phrase.startswith(text):
-
-            suggestions.append(phrase)
-
-    return suggestions
-
-
-# =============================
-# Suggestion Engine
-# =============================
-
-def suggest_actions(ir):
-
-    if not ir:
-        return
-
-    if ir["target"] == "python":
-
-        print("\nSuggestions:")
-
-        print("- install pip")
-
-        print("- create virtual environment")
-
-        print("- create project folder")
-
-    if ir["target"] == "node":
-
-        print("\nSuggestions:")
-
-        print("- install npm packages")
-
-        print("- initialize node project")
-
-
-# =============================
+# ------------------------
 # Command Executor
-# =============================
+# ------------------------
 
-def execute_command(ir):
+def execute(action, obj, param):
 
-    key = (ir["intent"], ir["target"])
+    if action == "install" and obj == "python":
+        print("→ Executing: install python")
 
-    command = COMMAND_REGISTRY.get(key)
+    elif action == "create" and obj == "folder":
+        if param:
+            os.makedirs(param, exist_ok=True)
+            print("→ Folder created:", param)
+        else:
+            print("→ Please specify folder name")
 
-    if not command:
+    elif action == "open" and obj == "browser":
+        print("→ Opening browser")
 
-        print("Command not supported")
+    elif action == "delete" and obj == "file":
+        print("→ Deleting file:", param)
 
-        return
+    elif action == "show":
+        print("→ Showing", obj)
 
-    if ir["intent"] == "create" and ir["value"]:
+    elif action == "help":
+        print("")
+        print("Available commands:")
+        print("install python")
+        print("create folder NAME")
+        print("open browser")
+        print("show cpu")
+        print("delete file NAME")
+        print("")
 
-        command = command + " " + ir["value"]
-
-    print("\nExecuting command:")
-
-    print(command)
-
-    # Disabled for safety
-    # os.system(command)
-
-
-# =============================
-# Command Learning
-# =============================
-
-def learn_command(text):
-
-    print("Teach PolyShell this command.")
-
-    intent = input("Intent: ")
-
-    target = input("Target: ")
-
-    value = ""
-
-    ir = {
-        "intent": intent,
-        "target": target,
-        "value": value
-    }
-
-    LEARNED_COMMANDS[text] = ir
-
-    save_learned_commands(LEARNED_COMMANDS)
-
-    print("Command learned.")
+    else:
+        print("→ Command recognized but not implemented yet")
 
 
-# =============================
-# Language Selection
-# =============================
-
-def select_language():
-
-    print("Select Language")
-
-    print("1 English")
-
-    print("2 Chinese")
-
-    print("3 Hindi")
-
-    choice = input("> ")
-
-    if choice == "1":
-        return "english"
-
-    if choice == "2":
-        return "chinese"
-
-    if choice == "3":
-        return "hindi"
-
-    return "english"
-
-
-# =============================
+# ------------------------
 # Main Loop
-# =============================
+# ------------------------
 
-def main():
+while True:
 
-    print("PolyShell AI Shell Demo")
+    command = input("PolyShell > ")
 
-    language = select_language()
+    if command == "exit":
+        print("Exiting PolyShell")
+        break
 
-    print("\nPolyShell ready")
+    words = command.split()
 
-    print("Type 'exit' to quit\n")
+    if len(words) < 2:
+        print("Invalid command")
+        continue
 
-    while True:
+    action_word = words[0]
+    object_word = words[1]
 
-        text = input(">>> ")
+    param = None
+    if len(words) > 2:
+        param = words[2]
 
-        if text == "exit":
-            break
+    action = actions.get(action_word)
+    obj = objects.get(object_word)
 
-        suggestions = autocomplete(language, text)
+    if not action:
+        print("Unknown action")
+        continue
 
-        if suggestions:
+    if not obj:
+        print("Unknown object")
+        continue
 
-            print("Autocomplete:", suggestions)
+    print("DSL →", action, obj, param)
 
-        ir = parse_to_ir(language, text)
-
-        if not ir:
-
-            print("Unknown command")
-
-            learn = input("Teach this command? (y/n): ")
-
-            if learn == "y":
-
-                learn_command(text)
-
-            continue
-
-        print("\nIR:", ir)
-
-        run_plugins(ir)
-
-        execute_command(ir)
-
-        suggest_actions(ir)
-
-
-if __name__ == "__main__":
-
-    main()
+    execute(action, obj, param)
