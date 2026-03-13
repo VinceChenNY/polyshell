@@ -18,6 +18,16 @@ This creates a barrier for millions of people who cannot use computers efficient
 
 ---
 
+## PolyShell currently supports:
+
+English
+Chinese
+Spanish
+Arabic
+Hindi
+
+---
+
 ## The Vision
 
 PolyShell proposes the opposite direction.
