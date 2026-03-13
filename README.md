@@ -141,39 +141,177 @@ mkdir test
 start chrome  
 
 ---
+## PolyShell Architecture
+PolyShell is designed as a lightweight natural language interface for operating systems.
+
+Instead of requiring users to memorize complex command syntax, PolyShell allows users to interact with their computer using simple multilingual commands.
+
+The system translates human language into structured system commands through several processing layers.
+
+---
 
 ## Architecture Overview
 
 PolyShell follows a simple architecture:
 
-User Natural Language  
-↓  
-Language Parser (Chinese / English / etc.)  
-↓  
-Intent Recognition  
-↓  
-Intermediate Representation (IR)  
-↓  
-Command Generator  
-↓  
-System Executor (Windows / Linux / MacOS)
 
-This architecture allows PolyShell to support multiple languages through language packs.
+User Natural Language
+↓
+Language Parser
+↓
+Intent Recognition
+↓
+Intermediate Representation (IR)
+↓
+Command Registry
+↓
+System Executor
+↓
+Operating System
+
 
 ---
+
+## Example Flow
+
+Example command:
+
+
+install python
+
+
+System output:
+
+
+winget install Python.Python
+
+
+Another example:
+
+
+create folder test
+
+
+System output:
+
+
+mkdir test
+
+---
+
+## Core Components
+
+### 1. Language Layer
+
+The language layer allows PolyShell to support multiple human languages.
+
+Example inputs:
+install python
+安装 python
+पायथन इंस्टॉल
+
+All commands are converted into a common internal structure.
+
+---
+
+### 2. Intent Parser
+
+The parser extracts the command structure:
+
+action + object + parameter
+
+Example:
+create project demo
+Parsed into:
+
+action: create
+object: project
+value: demo
+
+---
+
+### 3. Intermediate Representation (IR)
+
+The IR layer is the core abstraction of PolyShell.
+
+Example:
+create project demo
+
+IR representation:
+
+action: create
+object: project
+value: demo
+
+this allows PolyShell to remain language independent.
+
+---
+
+### 4. Command Registry
+
+The command registry maps IR instructions to real system commands.
+
+Example:
+
+install python
+
+Mapped to:
+
+winget install Python.Python
+
+---
+
+### 5. System Executor
+The executor runs commands on the operating system.
+Example commands executed on Windows:
+
+winget install Python.Python
+mkdir project
+start chrome
+
+---
+## Extensibility
+
+PolyShell is designed to be easily extended.
+
+Possible extensions include:
+
+- additional language packs
+- new command objects
+- plugin-based tools
+- support for multiple operating systems
+
+---
+
+## Design Philosophy
+
+PolyShell aims to lower the barrier between humans and computers.
+
+Instead of requiring users to learn programming languages or command-line syntax, PolyShell introduces a simple structured command system that is easy for humans to read and write.
+
+The long-term vision is to allow people to interact with computers using their own language.
 
 ## Language Pack System
 
 PolyShell supports multiple languages through modular language packs.
 
-Examples:
+Each language pack maps natural language expressions to the same internal command structure.
 
-Chinese Language Pack  
-English Language Pack  
-Spanish Language Pack  
-Arabic Language Pack  
+Example:
 
-Each language pack maps natural language expressions to internal command intents.
+English:
+install python
+
+Chinese:
+安装 python
+
+Hindi:
+पायथन इंस्टॉल
+
+All commands are converted into the same IR format:
+
+action: install  
+object: python
 
 ---
 
@@ -222,35 +360,6 @@ Autonomous command execution
 ### Phase 4 — Natural Language Operating Environment
 
 Fully conversational operating system layer.
-
----
-
-## Contributing
-
-PolyShell welcomes contributors from around the world.
-
-Possible contributions include:
-
-Language packs  
-Command mappings  
-Security systems  
-Execution engines  
-AI intent recognition improvements  
-Documentation and examples  
-
----
-
-## Contribution Recognition
-
-PolyShell values contributors.
-
-Contributions will be recognized based on their impact:
-
-Large contributions → larger recognition  
-Medium contributions → medium recognition  
-Small contributions → small recognition  
-
-The goal is to ensure contributors receive fair credit and visibility for their work.
 
 ---
 
