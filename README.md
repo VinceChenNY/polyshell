@@ -30,8 +30,6 @@ PolyShell aims to remove the language barrier between humans and computers.
 
 ---
 
-## Example Commands
-
 ## PolyShell Language v0.1
 
 PolyShell introduces a controlled natural language interface for operating systems.
@@ -374,6 +372,33 @@ Autonomous command execution
 Fully conversational operating system layer.
 
 ---
+
+## PolyShell Demo
+
+Run the demo:
+
+```
+python3 demo/polyshell_demo.py
+```
+
+Example commands:
+
+```
+install python
+create folder test
+open browser
+show cpu
+```
+
+Chinese examples:
+
+```
+安装 python
+创建 文件夹 test
+打开 浏览器
+显示 cpu
+```
+
 
 ## Project Governance
 
