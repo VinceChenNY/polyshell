@@ -33,6 +33,7 @@ PolyShell aims to remove the language barrier between humans and computers.
 ## Example Commands
 
 ## PolyShell Language v0.1
+
 PolyShell introduces a controlled natural language interface for operating systems.
 
 Instead of memorizing complex commands, users can interact with the system using simple structured phrases.
@@ -44,103 +45,114 @@ install python
 create project demo
 open browser
 
-Core Actions
+## PolyShell Language Specification v0.1
 
-Action	中文	Hindi	Description
-install	安装	इंस्टॉल	Install software
-create	创建	बनाओ	Create resource
-open	打开	खोलो	Open application
-remove	删除	हटाओ	Remove resource
-show	显示	दिखाओ	Display system info
+PolyShell defines a simple domain-specific language (DSL) for interacting with computer systems.
 
-Core Objects
+The goal is to provide a stable internal command language while allowing users to interact using natural language through language packs and AI interpretation.
 
-Object	中文	Hindi	Description
-python	python	पायथन	Python runtime
-node	node	नोड	Node.js runtime
-project	项目	प्रोजेक्ट	Development project
-folder	文件夹	फोल्डर	Folder
-browser	浏览器	ब्राउज़र	Web browser
-cpu	CPU	सीपीयू	CPU information
-gpu	GPU	जीपीयू	GPU information
-memory	内存	मेमोरी	RAM usage
-disk	硬盘	डिस्क	Disk information
-wifi	WiFi	वाईफाई	Network connection
-
-Intermediate Representation (IR)
-PolyShell converts commands into a structured internal format.
-
-### Chinese
-
-User Input
-
-帮我安装 python  
-帮我安装 node  
-创建文件夹 test  
-打开浏览器  
-
-System Output
-
-winget install Python.Python  
-winget install OpenJS.NodeJS  
-mkdir test  
-start chrome  
+Natural language inputs are converted into PolyShell DSL commands before execution.
 
 ---
 
-### English
+### Command Structure
 
-User Input
+PolyShell commands follow a simple structure:
+
+action object parameter
+
+Examples:
 
 install python  
-install node  
+create folder project  
+open browser  
+delete file test.txt  
+show cpu  
+
+---
+
+### Core Actions (v0.1)
+
+PolyShell v0.1 defines a minimal set of core actions.
+
+install  
+create  
+open  
+delete  
+show  
+update  
+search  
+run  
+stop  
+help  
+
+These actions represent common system operations.
+
+---
+
+### Core Objects (v0.1)
+
+PolyShell v0.1 includes a basic set of system objects.
+
+python  
+node  
+folder  
+file  
+browser  
+project  
+cpu  
+memory  
+disk  
+network  
+
+---
+
+### Example Commands
+
+install python  
 create folder test  
 open browser  
-
-System Output
-
-winget install Python.Python  
-winget install OpenJS.NodeJS  
-mkdir test  
-start chrome  
+delete file example.txt  
+show cpu  
 
 ---
 
-### Spanish
+### Language Pack Mapping
 
-User Input
+Users do not need to type PolyShell DSL directly.
 
-instalar python  
-instalar node  
-crear carpeta test  
-abrir navegador  
+Language packs map natural language to PolyShell commands.
 
-System Output
+Example mappings:
 
-winget install Python.Python  
-winget install OpenJS.NodeJS  
-mkdir test  
-start chrome  
+Chinese
+
+安装 python → install python  
+创建 文件夹 test → create folder test  
+打开 浏览器 → open browser  
+
+Spanish
+
+instalar python → install python  
+crear carpeta test → create folder test  
+
+Hindi
+
+पायथन इंस्टॉल → install python  
+
+---
+
+### Design Principle
+
+PolyShell DSL is stable.
+
+Language packs and AI interpretation translate natural language into DSL commands.
+
+This architecture allows PolyShell to support many human languages without changing the core system.
+
 
 ---
 
-### Arabic
-
-User Input
-
-تثبيت بايثون 
-تثبيت نود  
-إنشاء مجلد test  
-فتح المتصفح  
-
-System Output
-
-winget install Python.Python  
-winget install OpenJS.NodeJS  
-mkdir test  
-start chrome  
-
----
 ## PolyShell Architecture
 PolyShell is designed as a lightweight natural language interface for operating systems.
 
