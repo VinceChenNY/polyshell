@@ -1,0 +1,12 @@
+{
+  "安装": "install",
+  "创建": "create",
+  "打开": "open",
+  "删除": "delete",
+  "显示": "show",
+  "更新": "update",
+  "搜索": "search",
+  "运行": "run",
+  "停止": "stop",
+  "帮助": "help"
+}
