@@ -32,6 +32,44 @@ PolyShell aims to remove the language barrier between humans and computers.
 
 ## Example Commands
 
+PolyShell Language v0.1
+PolyShell introduces a controlled natural language interface for operating systems.
+
+Instead of memorizing complex commands, users can interact with the system using simple structured phrases.
+
+Basic structure:
+action + object + optional parameter
+Example:
+install python
+create project demo
+open browser
+
+Core Actions
+
+Action	中文	Hindi	Description
+install	安装	इंस्टॉल	Install software
+create	创建	बनाओ	Create resource
+open	打开	खोलो	Open application
+remove	删除	हटाओ	Remove resource
+show	显示	दिखाओ	Display system info
+
+Core Objects
+
+Object	中文	Hindi	Description
+python	python	पायथन	Python runtime
+node	node	नोड	Node.js runtime
+project	项目	प्रोजेक्ट	Development project
+folder	文件夹	फोल्डर	Folder
+browser	浏览器	ब्राउज़र	Web browser
+cpu	CPU	सीपीयू	CPU information
+gpu	GPU	जीपीयू	GPU information
+memory	内存	मेमोरी	RAM usage
+disk	硬盘	डिस्क	Disk information
+wifi	WiFi	वाईफाई	Network connection
+
+Intermediate Representation (IR)
+PolyShell converts commands into a structured internal format.
+
 ### Chinese
 
 User Input
@@ -90,7 +128,7 @@ start chrome
 
 User Input
 
-تثبيت بايثون  
+تثبيت بايثون 
 تثبيت نود  
 إنشاء مجلد test  
 فتح المتصفح  
@@ -235,6 +273,20 @@ PolyShell explores a future where anyone can control their computer using their 
 ---
 
 ## Future Applications
+
+Future versions of PolyShell will expand the language system.
+v0.1
+5 actions
+10 objects
+50 commands
+
+v0.2
+10 actions
+20 objects
+200 commands
+
+v1.0
+Full AI-assisted natural language shell
 
 PolyShell explores a future where anyone can control their computer using their own language.
 
