@@ -1,0 +1,12 @@
+{
+  "instalar": "install",
+  "crear": "create",
+  "abrir": "open",
+  "eliminar": "delete",
+  "mostrar": "show",
+  "actualizar": "update",
+  "buscar": "search",
+  "ejecutar": "run",
+  "detener": "stop",
+  "ayuda": "help"
+}
