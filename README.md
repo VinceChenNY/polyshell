@@ -32,7 +32,7 @@ PolyShell aims to remove the language barrier between humans and computers.
 
 ## Example Commands
 
-PolyShell Language v0.1
+## PolyShell Language v0.1
 PolyShell introduces a controlled natural language interface for operating systems.
 
 Instead of memorizing complex commands, users can interact with the system using simple structured phrases.
