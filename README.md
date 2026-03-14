@@ -94,13 +94,7 @@ New languages can be added by contributing language packs.
 
 # Project Structure
 
-polyshell
-│
-├ core
-├ languages
-├ ai
-├ demo
-├ polyshell.py
+AI interpretation (planned)
 
 ---
 
@@ -138,7 +132,6 @@ Possible contributions include:
 - AI integrations
 - documentation
 
----
 
 # License
 
