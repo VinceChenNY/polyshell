@@ -1,141 +1,87 @@
-# PolyShell
+# PolyShell 🚀
 
-PolyShell is a natural language shell that allows humans to control computers using their own language.
+PolyShell is a natural language CLI that allows users to control computers using human language.
 
-Instead of learning complex command-line syntax, users can simply describe what they want to do.
-
-PolyShell translates natural language into a small universal command language called **PolyShell DSL**.
+Instead of learning complex commands, users can simply describe what they want.
 
 ---
 
-# Example
+## ✨ Features
 
-User input
-
-帮我安装 python
-
-AI interpretation
-
-install python
-
-System execution
-
-apt install python3
+* 🌍 Multi-language support (Chinese / English / more)
+* ⚡ Local execution (no token cost for common commands)
+* 🤖 AI fallback (only when needed)
+* 🧠 Smart path management (`~/projects`)
+* 🔒 Safe mode (confirmation before AI usage)
+* 🖥️ Semi-real system interaction (files, disk, browser)
 
 ---
 
-# Core Idea
+## 🧠 How it works
 
-Traditional computing requires humans to learn machine languages.
-
-PolyShell reverses this relationship.
-
-Human language → AI interpretation → PolyShell DSL → Machine execution
-
----
-
-# PolyShell DSL
-
-PolyShell uses a simple command structure.
-
-action object parameter
-
-Example commands
-
-install python  
-create folder demo  
-open browser  
-delete file test.txt  
-show cpu  
+Human Language
+→ AI / Local Parser
+→ PolyShell DSL
+→ Command Execution
 
 ---
 
-# Architecture
+## 🚀 Demo
 
-PolyShell uses a layered architecture.
-
-Human Language  
-↓  
-AI Interpreter  
-↓  
-PolyShell DSL  
-↓  
-Command Registry  
-↓  
-System Executor  
-↓  
-Operating System  
+```bash
+open google
+创建文件 test.txt
+scan disk
+```
 
 ---
 
-# Features
+## 🔑 Setup
 
-- Natural language computer control
-- Simple and stable DSL
-- Multi-language support
-- Extensible command system
-- Lightweight architecture
+Run:
 
----
+```bash
+python3 polyshell.py
+```
 
-# Supported Languages
-
-PolyShell currently supports multiple languages through language packs.
-
-English  
-Chinese  
-Spanish  
-Arabic  
-Hindi  
-
-New languages can be added by contributing language packs.
+You will be guided to get your OpenAI API key.
 
 ---
 
-# Project Structure
+## 📌 Example
 
-AI interpretation (planned)
-
----
-
-# Roadmap
-
-### Phase 1 — Prototype
-Basic DSL  
-Command execution  
-Language packs  
-
-### Phase 2 — AI Interpreter
-Natural language understanding  
-Intent recognition  
-
-### Phase 3 — AI Shell
-Context awareness  
-Task automation  
-
-### Phase 4 — Universal Interface
-Computers  
-AI agents  
-Robotics  
-Smart environments  
+```bash
+>> 帮我创建一个python文件 demo.py
+>>> mkdir -p ~/projects/python && touch ~/projects/python/demo.py
+```
 
 ---
 
-# Contributing
+## 🛠️ Tech
 
-PolyShell welcomes contributions from developers worldwide.
+* Python
+* OpenAI API
+* Linux CLI
 
-Possible contributions include:
-
-- language packs
-- new system commands
-- AI integrations
-- documentation
-
-
-# License
-
-MIT License
 ---
 
-# Project Structure
+## 📈 Roadmap
+
+* [ ] Better language understanding
+* [ ] Smarter file organization
+* [ ] GUI version
+* [ ] Plugin system
+
+---
+
+## 💡 Vision
+
+PolyShell reverses computing:
+
+Human language → Machine execution
+
+---
+
+## 📄 License
+
+MIT
