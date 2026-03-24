@@ -1,87 +1,63 @@
+cat > README.md << 'EOF'
 # PolyShell 🚀
 
-PolyShell is a natural language CLI that allows users to control computers using human language.
+## What is this?
 
-Instead of learning complex commands, users can simply describe what they want.
+PolyShell is a natural language command system.
 
----
+You can control your computer without programming.
 
-## ✨ Features
+Just type what you want.
 
-* 🌍 Multi-language support (Chinese / English / more)
-* ⚡ Local execution (no token cost for common commands)
-* 🤖 AI fallback (only when needed)
-* 🧠 Smart path management (`~/projects`)
-* 🔒 Safe mode (confirmation before AI usage)
-* 🖥️ Semi-real system interaction (files, disk, browser)
+Example:
+- open google
+- create file
+- deploy project
 
 ---
 
-## 🧠 How it works
+## Goal
 
-Human Language
-→ AI / Local Parser
-→ PolyShell DSL
-→ Command Execution
+Make computers usable for everyone.
 
----
-
-## 🚀 Demo
-
-```bash
-open google
-创建文件 test.txt
-scan disk
-```
+No coding needed.
 
 ---
 
-## 🔑 Setup
+## Features
 
-Run:
-
-```bash
-python3 polyshell.py
-```
-
-You will be guided to get your OpenAI API key.
+- Natural language input
+- Multi-language support
+- Plugin system (extend easily)
+- Safe execution (user confirmation)
+- Beginner-friendly guidance
 
 ---
 
-## 📌 Example
+## Architecture
 
-```bash
->> 帮我创建一个python文件 demo.py
->>> mkdir -p ~/projects/python && touch ~/projects/python/demo.py
-```
-
----
-
-## 🛠️ Tech
-
-* Python
-* OpenAI API
-* Linux CLI
+User Input
+→ Intent Detection
+→ Action Plugin
+→ Execute
 
 ---
 
-## 📈 Roadmap
+## How to run
 
-* [ ] Better language understanding
-* [ ] Smarter file organization
-* [ ] GUI version
-* [ ] Plugin system
+cd polyshell  
+python3 main.py
 
 ---
 
-## 💡 Vision
+## Add new feature
 
-PolyShell reverses computing:
+Create a new file in:
 
-Human language → Machine execution
+polyshell/actions/
 
----
+Example:
 
-## 📄 License
-
-MIT
+```python
+def run(words, lang):
+    print("Hello world")
