@@ -1,61 +1,136 @@
 # PolyShell 🚀
 
-PolyShell is a natural language command system that lets you control your computer using plain language — no coding required.
+PolyShell is a natural language system that lets you control your computer without coding.
 
-It is designed for beginners and anyone who wants a simpler way to interact with computers.
-
----
-
-## ✨ Features
-- Natural language input (English + Chinese)
-- Plugin-based architecture (easy to extend)
-- AI fallback with user confirmation
-- Safe execution (no automatic API usage)
-- Beginner-friendly design
+You can install tools, fix problems, and clean your system — just by typing simple commands.
 
 ---
 
-## 🧠 How it works
-User Input → Intent Detection → Action Plugin → Execute
+## 🚀 Start
 
----
+Run PolyShell:
 
-## 🚀 Quick Start
-cd polyshell
 python3 polyshell.py
 
 ---
 
-## 🧪 Examples
+## 🧠 How to Use
+
+You can type simple commands like:
+
 open google  
 create file  
-帮我创建一个文件  
+deploy  
+clean  
+fix  
+
+Or just say what you want:
+
+"I want an AI tool"  
+"I need to download videos"
 
 ---
 
-## 🔌 Plugins
-Add new features by creating files in:
-actions/
+## 📦 Install Tools
 
-Each plugin should define:
-def run(words, lang):
-    pass
+Type:
 
----
+deploy
 
-## 🔐 AI Usage
-PolyShell will ask before using AI, warn about possible costs, and require users to input their own API key.
+Then choose:
 
-Your API key is never stored or shared.
+1–5 → install tools  
+d → delete installed tools  
+q → quit  
 
 ---
 
-## 🎯 Vision
-Make computers usable for everyone — just by speaking naturally.
+## 🧹 Clean Disk
+
+Type:
+
+clean
+
+PolyShell will:
+- scan your disk
+- show large files (cache, node, models)
+- let you safely remove them
 
 ---
 
-## ⚠️ Note
-This is an early MVP version. More intelligent parsing and features will be added in the future.
+## 🛠 Fix Problems
 
+Type:
+
+fix
+
+Choose a common error → PolyShell shows solution  
+You can run fix with y/n  
+
+---
+
+## 🤖 AI Usage (Important)
+
+PolyShell is designed to be FREE.
+
+- Local AI (like Ollama) is FREE  
+- You control when to use AI  
+- PolyShell does NOT store your API key  
+
+⚠️ Only when you choose to use external API:
+→ it may cost money (your responsibility)
+
+You will always be asked before any API usage.
+
+---
+
+## 🔄 Safe to Exit
+
+Anytime you feel confused:
+
+type:
+
+exit
+
+or just close the terminal.
+
+You can always restart:
+
+python3 polyshell.py
+
+---
+
+## 🧽 Clean Removal
+
+After trying tools:
+
+1. Use:
+deploy → d  
+→ remove installed tools (record)
+
+2. Then run:
+clean  
+→ free disk space safely
+
+---
+
+## 🎯 Goal
+
+Make computers usable for everyone.
+
+No coding required.  
+No hidden cost.  
+Step-by-step guidance.
+
+---
+
+## ⚠️ Notes
+
+- This is an early version (MVP)
+- Some installs depend on your system
+- If something fails, use: fix
+
+---
+
+Enjoy PolyShell 🚀
 EOF
