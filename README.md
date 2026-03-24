@@ -56,13 +56,6 @@ Create a new file in:
 
 polyshell/actions/
 
-Example:
-
-```python
-def run(words, lang):
-    print("Hello world")
-
-
 ## Vision
 
 Make a system where anyone can use a computer
