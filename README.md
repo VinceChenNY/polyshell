@@ -1,64 +1,61 @@
-cat > README.md << 'EOF'
 # PolyShell 🚀
 
-## What is this?
+PolyShell is a natural language command system that lets you control your computer using plain language — no coding required.
 
-PolyShell is a natural language command system.
-
-You can control your computer without programming.
-
-Just type what you want.
-
-Example:
-- open google
-- create file
-- deploy project
+It is designed for beginners and anyone who wants a simpler way to interact with computers.
 
 ---
 
-## Goal
-
-Make computers usable for everyone.
-
-No coding needed.
-
----
-
-## Features
-
-- Natural language input
-- Multi-language support
-- Plugin system (extend easily)
-- Safe execution (user confirmation)
-- Beginner-friendly guidance
+## ✨ Features
+- Natural language input (English + Chinese)
+- Plugin-based architecture (easy to extend)
+- AI fallback with user confirmation
+- Safe execution (no automatic API usage)
+- Beginner-friendly design
 
 ---
 
-## Architecture
-
-User Input
-→ Intent Detection
-→ Action Plugin
-→ Execute
+## 🧠 How it works
+User Input → Intent Detection → Action Plugin → Execute
 
 ---
 
-## How to run
-
-cd polyshell  
-python3 main.py
+## 🚀 Quick Start
+cd polyshell
+python3 polyshell.py
 
 ---
 
-## Add new feature
+## 🧪 Examples
+open google  
+create file  
+帮我创建一个文件  
 
-Create a new file in:
+---
 
-polyshell/actions/
+## 🔌 Plugins
+Add new features by creating files in:
+actions/
 
-## Vision
+Each plugin should define:
+def run(words, lang):
+    pass
 
-Make a system where anyone can use a computer
-just by speaking naturally.
+---
+
+## 🔐 AI Usage
+PolyShell will ask before using AI, warn about possible costs, and require users to input their own API key.
+
+Your API key is never stored or shared.
+
+---
+
+## 🎯 Vision
+Make computers usable for everyone — just by speaking naturally.
+
+---
+
+## ⚠️ Note
+This is an early MVP version. More intelligent parsing and features will be added in the future.
+
 EOF
-
